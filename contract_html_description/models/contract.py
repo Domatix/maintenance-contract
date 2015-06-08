@@ -5,5 +5,5 @@ from openerp import models, fields
 class AccountAnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
-    description_html = fields.Html(
+    html_description = fields.Html(
         string='Description')
