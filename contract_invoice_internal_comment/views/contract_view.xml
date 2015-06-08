@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+
+		<record id="account_analytic_account_internal_comment_form"
+			model="ir.ui.view">
+			<field name="name">account.analytic.account.internal.comment.form
+			</field>
+			<field name="model">account.analytic.account</field>
+			<field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
+			<field name="arch" type="xml">
+				<xpath expr='//field[@name="description"]' position='after'>
+					<label for="invoice_internal_comment"
+						attrs="{'invisible': [('recurring_invoices','=',False)]}" />
+					<div attrs="{'invisible': [('recurring_invoices','=',False)]}">
+						<field name="invoice_internal_comment" />
+					</div>
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</openerp>

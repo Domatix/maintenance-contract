@@ -1,0 +1,76 @@
+-
+  In order to test Contract Recurrent Invoice I create a new Contract Template with 25% discount
+-
+  !record {model: account.analytic.account, id: contract_template}:
+    name: Maintenance of Servers
+    company_id: base.main_company
+    partner_id: base.main_partner
+    type: template
+    recurring_invoices : 1
+    recurring_interval : 1
+    recurring_invoice_line_ids:
+      - quantity: 2.0
+        price_unit: 100.0
+        discount: 25.0
+        name: Database Administration
+        product_id: product.product_product_consultant
+        uom_id: product.product_uom_hour
+-
+  I create a contract based on this template
+-
+  !record {model: account.analytic.account, id: contract_main}:
+    partner_id: base.main_partner
+    template_id: contract_discount.contract_template
+    type: contract
+-
+  I generate all invoices from contracts having recurring invoicing
+-
+  !python {model: account.analytic.account}: |
+    self.recurring_create_invoice(cr, uid, [])
+-
+  I test the generated invoice
+-
+  !python {model: account.invoice}: |
+    aid = ref('contract_discount.contract_main')
+    ids = self.search(cr, uid, [('invoice_line.account_analytic_id','=',aid)], context=context)
+    assert len(ids)>=1, 'No invoice created for the contract'
+    for invoice in self.browse(cr, uid, ids,context=context):
+        assert invoice.amount_untaxed == 150.0, "The invoice total is different than 150!"
+-
+  In order to test Contract Recurrent Invoice I create a new Contract Template with 50% discount 
+-
+  !record {model: account.analytic.account, id: contract_template_2}:
+    name: Maintenance of Servers
+    company_id: base.main_company
+    partner_id: base.main_partner
+    type: template
+    recurring_invoices : 1
+    recurring_interval : 1
+    recurring_invoice_line_ids:
+      - quantity: 2.0
+        price_unit: 100.0
+        discount: 50.0
+        name: Database Administration
+        product_id: product.product_product_consultant
+        uom_id: product.product_uom_hour
+-
+  I create a contract based on this template
+-
+  !record {model: account.analytic.account, id: contract_main_2}:
+    partner_id: base.main_partner
+    template_id: contract_discount.contract_template_2
+    type: contract
+-
+  I generate all invoices from contracts having recurring invoicing
+-
+  !python {model: account.analytic.account}: |
+    self.recurring_create_invoice(cr, uid, [])
+-
+  I test the generated invoice
+-
+  !python {model: account.invoice}: |
+    aid = ref('contract_discount.contract_main')
+    ids = self.search(cr, uid, [('invoice_line.account_analytic_id','=',aid)], context=context)
+    assert len(ids)>=1, 'No invoice created for the contract'
+    for invoice in self.browse(cr, uid, ids,context=context):
+        assert invoice.amount_untaxed == 100.0, "The invoice total is different than 100!"
