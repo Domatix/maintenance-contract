@@ -13,8 +13,8 @@ class AccountAnalyticInvoiceLine(models.Model):
         discount = self.discount / 100
         price_subtotal = self.quantity * self.price_unit * (1 - discount)
         if self.analytic_account_id.pricelist_id:
-            # cur = self.analytic_account_id.pricelist_id.currency_id
-            price_subtotal = currency_obj.round(price_subtotal)
+            cur = self.analytic_account_id.pricelist_id.currency_id
+            price_subtotal = cur.round(price_subtotal)
         self.price_subtotal = price_subtotal
 
     discount = fields.Float(
