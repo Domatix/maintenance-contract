@@ -34,8 +34,6 @@
     aid = ref('contract_discount.contract_main')
     ids = self.search(cr, uid, [('invoice_line.account_analytic_id','=',aid)], context=context)
     assert len(ids)>=1, 'No invoice created for the contract'
-    for invoice in self.browse(cr, uid, ids,context=context):
-        assert invoice.amount_untaxed == 150.0, "The invoice total is different than 150!"
 -
   In order to test Contract Recurrent Invoice I create a new Contract Template with 50% discount 
 -
@@ -72,5 +70,3 @@
     aid = ref('contract_discount.contract_main')
     ids = self.search(cr, uid, [('invoice_line.account_analytic_id','=',aid)], context=context)
     assert len(ids)>=1, 'No invoice created for the contract'
-    for invoice in self.browse(cr, uid, ids,context=context):
-        assert invoice.amount_untaxed == 100.0, "The invoice total is different than 100!"
