@@ -9,7 +9,6 @@ class AccountAnalyticInvoiceLine(models.Model):
     @api.one
     @api.depends('price_unit', 'discount')
     def _amount_line(self):
-        #currency_obj = self.env['res.currency']
         discount = self.discount / 100
         price_subtotal = self.quantity * self.price_unit * (1 - discount)
         if self.analytic_account_id.pricelist_id:
