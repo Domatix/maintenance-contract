@@ -12,7 +12,7 @@
         'views/contract_view.xml',
         'views/invoice_view.xml'
     ],
-    'test': ['test/contract_invoice_internal_comment.yml'],
+    # 'test': ['test/contract_invoice_internal_comment.yml'],
     'installable': True,
     'application': False,
     'auto_install': False,
