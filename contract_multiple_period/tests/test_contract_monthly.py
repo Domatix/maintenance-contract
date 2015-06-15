@@ -42,4 +42,4 @@ class TestContractRecursive(TestContractCommon):
             [('invoice_line.account_analytic_id',
               '=',
               self.contract_monthly.id)])
-        # assert len(invoice_ids) >= 1, 'No invoice created for the contract'
+        assert len(invoice_ids) >= 1, 'No invoice created for the contract'
