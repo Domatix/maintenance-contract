@@ -12,6 +12,7 @@ class TestContractRecursive(TestContractCommon):
         """ Creo un contrato con una linea recursiva y lo facturo. """
 
         # CREAR CONTRATO CON LINEA NO FACTURABLE
+        invoice_obj = self.env['account.invoice']
         contract_lines = []
 
         line_values = {
@@ -32,12 +33,12 @@ class TestContractRecursive(TestContractCommon):
             }
         self.contract_none = self.ContractObj.create(contract_values)
 
-        self.assertTrue(self.contract_recursive, "Contrato no creado")
+        self.assertTrue(self.contract_none, "Contrato no creado")
 
         # FACTURO CONTRATO
         self.contract_recursive.recurring_create_invoice()
 
-        invoice_ids = self.invoce_obj.search(
+        invoice_ids = invoice_obj.search(
             [('invoice_line.''account_analytic_id',
               '=',
               self.contract_recursive.id)])

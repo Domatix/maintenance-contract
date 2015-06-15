@@ -12,6 +12,7 @@ class TestContractRecursive(TestContractCommon):
         """ Creo un contrato con una linea recursiva y lo facturo. """
 
         # CREAR CONTRATO CON LINEA UNICA
+        invoice_obj = self.env['account.invoice']
         contract_lines = []
 
         line_values = {
@@ -37,7 +38,7 @@ class TestContractRecursive(TestContractCommon):
         # FACTURO CONTRATO
         self.contract_unique.recurring_create_invoice()
 
-        invoice_ids = self.invoce_obj.search(
+        invoice_ids = invoice_obj.search(
             [('invoice_line.account_analytic_id',
               '=',
               self.contract_unique.id)])
