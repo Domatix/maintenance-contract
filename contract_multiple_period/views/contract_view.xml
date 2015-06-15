@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+
+		<record id="account_analytic_account_form_multiperiod_form"
+			model="ir.ui.view">
+			<field name="name">account.analytic.account.invoice.form.multiperiod.form
+			</field>
+			<field name="model">account.analytic.account</field>
+			<field name="inherit_id"
+				ref="account_analytic_analysis.account_analytic_account_form_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='recurring_interval']" position="replace">
+				</xpath>
+				<xpath expr="//field[@name='recurring_rule_type']" position="replace">
+				</xpath>
+				<xpath expr="//label[@for='recurring_interval']" position="replace">
+					<label for="periodicity_type" attrs="{'invisible': True}" />
+					<div>
+						<field name="periodicity_type" class="oe_inline" attrs="{'invisible':True}" />
+					</div>
+					<label for="recurring_interval" attrs="{'invisible': True}" />
+					<div attrs="{'invisible': [('periodicity_type','!=','recursive')]}">
+						<field name="recurring_interval" class="oe_inline"
+							attrs="{'required': [('recurring_invoices', '=', True),('periodicity_type','=','recursive')],'invisible': True}" />
+						<field name="recurring_rule_type" class="oe_inline"
+							attrs="{'required': [('recurring_invoices', '=', True),('periodicity_type','=','recursive')],'invisible': True}" />
+					</div>
+					<field name="month_ids"
+						attrs="{'invisible': [('periodicity_type','!=','month')]}"
+						options="{'no_create':'1'}" widget='many2many_tags' />
+					<div></div>
+				</xpath>
+
+				<xpath expr="//field[@name='recurring_invoice_line_ids']"
+					position="replace">
+					<field name="recurring_invoice_line_ids"
+						context="{'default_periodicity_type': periodicity_type,'default_recurring_interval':recurring_interval,'default_recurring_rule_type':recurring_rule_type,'default_month_ids':month_ids}">
+						<form string="Account Analytic Lines">
+							<group name="general">
+								<group string="Product" name="product">
+									<field name="product_id"
+										on_change="product_id_change(product_id, uom_id, quantity, False, parent.partner_id, False, parent.pricelist_id, parent.company_id)" />
+									<field name="quantity" />
+									<field name="uom_id" />
+								</group>
+								<group string="Price" name="price">
+									<field name="price_unit" />
+									<field name="price_subtotal" />
+								</group>
+							</group>
+							<group string="Invoicing" name="invoicing">
+								<group name="invoice_periodicity_group">
+									<field name="periodicity_type" />
+									<label for="recurring_interval"
+										attrs="{'invisible': [('periodicity_type','!=','recursive')]}" />
+
+									<div attrs="{'invisible': [('periodicity_type','!=','recursive')]}">
+										<field name="recurring_interval" class="oe_inline"
+											attrs="{'required': [('periodicity_type','=','recursive')]}" />
+										<field name="recurring_rule_type" class="oe_inline"
+											attrs="{'required': [('periodicity_type','=','recursive')]}" />
+									</div>
+									<field name="month_ids" class="oe_inline"
+										attrs="{'invisible': [('periodicity_type','!=','month')]}"
+										widget='many2many_tags' />
+									<field name="recurring_next_date"
+										attrs="{'invisible': [('periodicity_type', '=', 'none') ] }" />
+									<field name="recurring_last_date" readonly="1" />
+								</group>
+								<group name="invoice_description">
+									<field name="name" nolabel="1" colspan="2" />
+								</group>
+							</group>
+						</form>
+						<tree string="Account Analytic Lines">
+							<field name="periodicity_type" />
+							<field name="product_id" />
+							<field name="name" />
+							<field name="recurring_next_date" />
+							<field name="recurring_last_date" />
+							<field name="quantity" />
+							<field name="uom_id" />
+							<field name="price_unit" />
+							<field name="price_subtotal" />
+						</tree>
+					</field>
+				</xpath>
+
+				<field name="recurring_next_date" position="replace">
+					<group>
+						<group>
+							<field name="computed_next_date" />
+						</group>
+						<group>
+							<field name="computed_last_date" />
+						</group>
+					</group>
+				</field>
+
+			</field>
+		</record>
+
+
+	</data>
+</openerp>
