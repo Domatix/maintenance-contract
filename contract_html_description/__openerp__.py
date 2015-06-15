@@ -11,7 +11,6 @@
     'data': [
         'views/contract_view.xml',
     ],
-    'test': ['test/contract_journal.yml'],
     'installable': True,
     'application': False,
     'auto_install': False,
