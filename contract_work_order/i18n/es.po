@@ -1,0 +1,388 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * contract_work_order
+# angel <angel.moya@domatix.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-13 09:20+0000\n"
+"PO-Revision-Date: 2015-06-13 11:42+0200\n"
+"Last-Translator: angel <angel.moya@domatix.com>\n"
+"Language-Team: Domatix\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#. module: contract_work_order
+#: model:ir.model,name:contract_work_order.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+msgid "Cancel"
+msgstr "Cancelado"
+
+#. module: contract_work_order
+#: selection:maintenance.work.order,state:0
+msgid "Cancelled"
+msgstr "Cancelar"
+
+#. module: contract_work_order
+#: field:maintenance.work.order,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: contract_work_order
+#: model:ir.model,name:contract_work_order.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: contract_work_order
+#: field:maintenance.work.order,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+msgid "Concepts"
+msgstr "Conceptos"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_orders_search
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: contract_work_order
+#: field:maintenance.work.order,project_id:0
+msgid "Contract / Analytic"
+msgstr "Contato / Cuenta analítica"
+
+#. module: contract_work_order
+#: view:product.template:contract_work_order.product_template_contract_form_view
+msgid "Contract Data"
+msgstr "Datos del contrato"
+
+#. module: contract_work_order
+#: field:maintenance.work.line,contract_line_id:0
+msgid "Contract Line"
+msgstr "Linea de contrato"
+
+#. module: contract_work_order
+#: field:maintenance.work.line,create_uid:0
+#: field:maintenance.work.order,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: contract_work_order
+#: field:maintenance.work.line,create_date:0
+#: field:maintenance.work.order,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: contract_work_order
+#: field:maintenance.work.order,partner_id:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_orders_search
+#: field:maintenance.work.order,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: contract_work_order
+#: field:maintenance.work.order,datetime_done:0
+msgid "Date Done"
+msgstr "Fecha de realización"
+
+#. module: contract_work_order
+#: field:account.analytic.invoice.line,recurring_last_work_date:0
+msgid "Date Last Work"
+msgstr "Última fecha"
+
+#. module: contract_work_order
+#: field:maintenance.work.order,datetime_planned:0
+msgid "Date Planned"
+msgstr "Fecha planificada"
+
+#. module: contract_work_order
+#: field:account.analytic.invoice.line,recurring_next_work_date:0
+msgid "Date To Work"
+msgstr "Próxima fecha"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: contract_work_order
+#: selection:account.analytic.invoice.line,work_recurring_rule_type:0
+msgid "Day(s)"
+msgstr "Día(s)"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+#: selection:maintenance.work.order,state:0
+msgid "Done"
+msgstr "Aceptado"
+
+#. module: contract_work_order
+#: selection:maintenance.work.order,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_orders_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: contract_work_order
+#: field:maintenance.work.line,id:0
+#: field:maintenance.work.order,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+msgid "Info"
+msgstr "Info"
+
+#. module: contract_work_order
+#: field:account.analytic.invoice.line,work_to_invoice:0
+#: field:maintenance.work.line,to_invoice:0
+msgid "Invoiceable"
+msgstr "Facturable"
+
+#. module: contract_work_order
+#: field:maintenance.work.line,write_uid:0
+#: field:maintenance.work.order,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: contract_work_order
+#: field:maintenance.work.line,write_date:0
+#: field:maintenance.work.order,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+#: field:maintenance.work.order,line_ids:0
+msgid "Lines"
+msgstr "Lineas"
+
+#. module: contract_work_order
+#: model:ir.ui.menu,name:contract_work_order.menu_maintenance
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_orders_search
+msgid "Month"
+msgstr "Meses"
+
+#. module: contract_work_order
+#: selection:account.analytic.invoice.line,work_recurring_rule_type:0
+msgid "Month(s)"
+msgstr "Mes(es)"
+
+#. module: contract_work_order
+#: field:account.analytic.invoice.line,work_month_ids:0
+msgid "Months"
+msgstr "Meses"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+#: field:maintenance.work.order,motive:0
+msgid "Motive"
+msgstr "Motivo"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_orders_search
+msgid "Name"
+msgstr "Nombre"
+
+#. module: contract_work_order
+#: selection:account.analytic.invoice.line,work_periodicity_type:0
+msgid "None"
+msgstr "No"
+
+#. module: contract_work_order
+#: help:res.company,work_planning_scope:0
+msgid "Number in month for planning work in contracts"
+msgstr "Número en meses de para planificar el trabajo"
+
+#. module: contract_work_order
+#: field:maintenance.work.order,name:0
+msgid "Order Reference"
+msgstr "Referencia de pedido"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+msgid "Other Info"
+msgstr "Otra información"
+
+#. module: contract_work_order
+#: selection:maintenance.work.order,state:0
+msgid "Planned"
+msgstr "Planificado"
+
+#. module: contract_work_order
+#: field:maintenance.work.line,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: contract_work_order
+#: model:ir.model,name:contract_work_order.model_product_template
+msgid "Product Template"
+msgstr "Plantilla producto"
+
+#. module: contract_work_order
+#: field:maintenance.work.line,product_uom_qty:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: contract_work_order
+#: selection:account.analytic.invoice.line,work_periodicity_type:0
+msgid "Recursive"
+msgstr "Recursivo"
+
+#. module: contract_work_order
+#: field:account.analytic.invoice.line,work_recurring_interval:0
+msgid "Repeat Every"
+msgstr "Repetir cada"
+
+#. module: contract_work_order
+#: help:account.analytic.invoice.line,work_recurring_interval:0
+msgid "Repeat every (Days/Week/Month/Year)"
+msgstr "Repetir cada (Días, Semanas, Meses, Años)"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+msgid "Sale"
+msgstr "Venta"
+
+#. module: contract_work_order
+#: field:maintenance.work.line,sale_line_id:0
+msgid "Sale Line"
+msgstr "Linea de venta"
+
+#. module: contract_work_order
+#: field:maintenance.work.order,sale_id:0
+msgid "Sale Order"
+msgstr "Pedido de venta"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_orders_search
+msgid "Search Work Orders"
+msgstr "Buscar ordenes de trabajo"
+
+#. module: contract_work_order
+#: selection:account.analytic.invoice.line,work_periodicity_type:0
+msgid "Specified Months"
+msgstr "Meses específicos"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_orders_search
+#: field:maintenance.work.order,state:0
+msgid "Status"
+msgstr "Estado"
+
+#. module: contract_work_order
+#: help:maintenance.work.order,project_id:0
+msgid "The analytic account related to a sales order."
+msgstr "La cuenta analítica relacionada con este pedido de venta."
+
+#. module: contract_work_order
+#: selection:account.analytic.invoice.line,work_periodicity_type:0
+msgid "Unique"
+msgstr "Único"
+
+#. module: contract_work_order
+#: field:maintenance.work.line,product_uom_id:0
+msgid "Unit of Measure "
+msgstr "Unidad de medida"
+
+#. module: contract_work_order
+#: selection:account.analytic.invoice.line,work_recurring_rule_type:0
+msgid "Week(s)"
+msgstr "Semana(s)"
+
+#. module: contract_work_order
+#: field:account.analytic.invoice.line,work_description:0
+#: field:maintenance.work.line,work_description:0
+#: view:product.template:contract_work_order.product_template_contract_form_view
+#: field:product.template,work_description:0
+msgid "Work Description"
+msgstr "Descripción para la orden de trabajo"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+msgid "Work Done"
+msgstr "Orden aceptada"
+
+#. module: contract_work_order
+#: view:account.analytic.account:contract_work_order.account_analytic_account_form_multiperiod_work_form
+#: field:maintenance.work.line,work_order_id:0
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+#: view:maintenance.work.order:contract_work_order.view_work_order_tree
+msgid "Work Order"
+msgstr "Orden de trabajo"
+
+#. module: contract_work_order
+#: model:ir.actions.act_window,name:contract_work_order.action_work_order
+#: model:ir.ui.menu,name:contract_work_order.maintenance_work_orders_menu
+#: model:ir.ui.menu,name:contract_work_order.menu_maintenance_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_calendar
+msgid "Work Orders"
+msgstr "Ordenes de trabajo"
+
+#. module: contract_work_order
+#: field:account.analytic.invoice.line,work_periodicity_type:0
+msgid "Work Periodicity Type"
+msgstr "Tipo de periodicidad"
+
+#. module: contract_work_order
+#: field:res.company,work_planning_scope:0
+msgid "Work Planning Scope"
+msgstr "Fecha umbral de ordenes de trabajo"
+
+#. module: contract_work_order
+#: field:account.analytic.invoice.line,work_recurring_rule_type:0
+msgid "Work Recurrency"
+msgstr "Recurrencia de ordenes"
+
+#. module: contract_work_order
+#: view:maintenance.work.order:contract_work_order.view_work_order_form
+msgid "Work To Do"
+msgstr "Trabajo a realizar"
+
+#. module: contract_work_order
+#: field:maintenance.work.order,notes_done:0
+msgid "Work done"
+msgstr "Orden aceptada"
+
+#. module: contract_work_order
+#: help:account.analytic.invoice.line,work_recurring_rule_type:0
+msgid "Work order automatically repeat at specified interval"
+msgstr "Work order automatically repeat at specified interval"
+
+#. module: contract_work_order
+#: field:maintenance.work.order,notes_todo:0
+msgid "Work to do"
+msgstr "Trabajo a realizar"
+
+#. module: contract_work_order
+#: selection:account.analytic.invoice.line,work_recurring_rule_type:0
+msgid "Year(s)"
+msgstr "Año(s)"
+
+#. module: contract_work_order
+#: view:account.analytic.account:contract_work_order.account_analytic_account_form_work
+msgid "⇒ create work"
+msgstr "⇒ crear ordenes de trabajo"

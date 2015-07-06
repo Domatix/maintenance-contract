@@ -86,7 +86,7 @@
 						</tree>
 					</field>
 				</xpath>
-
+ 
 				<field name="recurring_next_date" position="replace">
 					<group>
 						<group>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="contract_draft_view" model="ir.ui.view">
+            <field name="name">contract.draft.view</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="hr_timesheet_invoice.account_analytic_account_form_form"/>
+            <field name="arch" type="xml">
+            
+            <xpath expr="header/button[@name='set_pending']" position="before">
+            	<button name="set_validate" string="Validate" type="object" states="draft" />
+            </xpath>
+            
+            <xpath expr="header/button[@name='set_open']" position="replace">
+            	<button name="set_open" string="Set In Progress" type="object" states="pending,close,cancelled" />
+            </xpath>
+            
+            <xpath expr="header/field[@name='state']" position="replace">
+            	<field name="state" readonly="1" widget="statusbar"
+                            statusbar_visible="draft,open,pending,close" statusbar_colors='{"pending":"red", "template":"blue"}'/>
+            </xpath>
+            
+            
+            </field>
+        </record>
+        
+       <!--  <record id="contract_draft_view_account" model="ir.ui.view">
+        	<field name="name">contract.draft.view.account</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="account_analytic_analysis.account_analytic_account_form_form"/>
+            <field name="arch" type="xml">
+        	
+        	<xpath expr="//div/div/field[@name='recurring_invoices']" position="replace">
+        		 <field name="recurring_invoices" on_change="onchange_recurring_invoices(recurring_invoices, date_start)" attrs="{'readonly': [('state','=','draft')]}" class="oe_inline" />
+        	</xpath>
+        	
+        	</field>
+        </record>  -->
+        
+    </data>
+ </openerp>

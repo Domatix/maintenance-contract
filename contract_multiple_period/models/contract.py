@@ -38,7 +38,7 @@ class AccountAnalyticAccount(models.Model):
                     line.recurring_last_date and
                     line.recurring_last_date < last_date):
                 last_date = line.recurring_last_date
-        self.computed_next_date = last_date
+        self.computed_last_date = last_date
 
     periodicity_type = fields.Selection(
         PERIODICITY_TYPE,
@@ -56,9 +56,9 @@ class AccountAnalyticAccount(models.Model):
         )
     computed_last_date = fields.Date(
         'Date of Last Invoice',
-        compute='_compute_next_date'
+        compute='_compute_last_date'
         )
-
+    
     @api.onchange('date_start')
     def onchange_date_start(self):
         self.computed_next_date = self.date_start
@@ -101,7 +101,9 @@ class AccountAnalyticAccount(models.Model):
                         'uos_id': line.uom_id.id or False,
                         'product_id': line.product_id.id or False,
                         'invoice_line_tax_id': [(6, 0, tax_id)],
+                        #'date_invoice':line.recurring_next_date
                     }))
+                    
         return invoice_lines
 
     def _recurring_create_invoice(self, cr, uid, ids,
@@ -129,8 +131,8 @@ class AccountAnalyticAccount(models.Model):
                                             context=dict(context,
                                                          company_id=c_id,
                                                          force_company=c_id)):
-                    try:
-                        invoice_values = self._prepare_invoice(cr, uid,
+                    try:                       
+                        invoice_values = self._modify_recurring_date(cr, uid,
                                                                contract,
                                                                context=context)
                         if invoice_values['invoice_line'] != []:
@@ -147,7 +149,10 @@ class AccountAnalyticAccount(models.Model):
                             raise
         return invoice_ids
 
-
+    def _modify_recurring_date(self, cr, uid,contract,context):
+        contract.recurring_next_date = contract.computed_next_date        
+        return self._prepare_invoice(cr, uid,contract,context=context)
+        
 class AccountAnalyticInvoiceLine(models.Model):
     _inherit = "account.analytic.invoice.line"
 

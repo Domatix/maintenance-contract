@@ -1,0 +1,16 @@
+-
+  Create a new contract
+-
+  !record {model: account.analytic.account, id: contract_template}:
+    name: Maintenance of Servers
+    company_id: base.main_company
+    partner_id: base.main_partner
+    type: template
+ 
+-
+  Create a new product for use in next lines
+-
+  !record {model: product.template, id: product_template}:
+    name: Product one
+    type: product
+    list_price: 85

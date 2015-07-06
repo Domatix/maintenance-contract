@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="contract_month_1" model="contract.month">
+            <field eval="1" name="code"/>
+            <field name="name">Enero</field>
+        </record>
+        <record id="contract_month_2" model="contract.month">
+            <field eval="2" name="code"/>
+            <field name="name">Febrero</field>
+        </record>
+        <record id="contract_month_3" model="contract.month">
+            <field eval="3" name="code"/>
+            <field name="name">Marzo</field>
+        </record>
+        <record id="contract_month_4" model="contract.month">
+            <field eval="4" name="code"/>
+            <field name="name">Abril</field>
+        </record>
+        <record id="contract_month_5" model="contract.month">
+            <field eval="5" name="code"/>
+            <field name="name">Mayo</field>
+        </record>
+        <record id="contract_month_6" model="contract.month">
+            <field eval="6" name="code"/>
+            <field name="name">Junio</field>
+        </record>
+        <record id="contract_month_7" model="contract.month">
+            <field eval="7" name="code"/>
+            <field name="name">Julio</field>
+        </record>
+        <record id="contract_month_8" model="contract.month">
+            <field eval="8" name="code"/>
+            <field name="name">Agosto</field>
+        </record>
+        <record id="contract_month_9" model="contract.month">
+            <field eval="9" name="code"/>
+            <field name="name">Septiembre</field>
+        </record>
+        <record id="contract_month_10" model="contract.month">
+            <field eval="10" name="code"/>
+            <field name="name">Octubre</field>
+        </record>
+        <record id="contract_month_11" model="contract.month">
+            <field eval="11" name="code"/>
+            <field name="name">Noviembre</field>
+        </record>
+        <record id="contract_month_12" model="contract.month">
+            <field eval="12" name="code"/>
+            <field name="name">Diciembre</field>
+        </record>
+    </data>
+</openerp>

@@ -9,7 +9,7 @@ class TestContractRecursive(TestContractCommon):
 
     @mute_logger('openerp.addons.base.ir.ir_model', 'openerp.models')
     def test_00_contract_recursive_invoicing(self):
-        """ Creo un contrato con una linea recursiva y lo facturo. """
+        """ Creo un contrato con una linea recursiva y lo facturo. Con linea NO facturable """
 
         # CREAR CONTRATO CON LINEA NO FACTURABLE
         invoice_obj = self.env['account.invoice']

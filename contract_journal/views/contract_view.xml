@@ -8,7 +8,7 @@
 			<field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
 			<field name="arch" type="xml">
 				<xpath expr="//field[@name='template_id']" position="before">
-					<field name="journal_id" groups="account.group_account_user"/>
+					<field name="journal_id" />
 				</xpath>
 			</field>
 		</record>

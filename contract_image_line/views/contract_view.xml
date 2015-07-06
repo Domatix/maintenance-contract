@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		<record id="account_analytic_account_image_contrac_line" model="ir.ui.view">
+			<field name="name">account.analytic.account.image.contrac.line </field>
+			<field name="model">account.analytic.account</field>
+			<field name="inherit_id" ref="contract_multiple_period.account_analytic_account_form_multiperiod_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//group[@string='Description']" position="before">
+					<page string="Images">
+						<group string="Images">
+	                        <field name="image_ids" nolabel="1">
+	                        	<form>
+		                        	<group>
+		                                <field name="image" filename="image_fname" widget="image" nolabel="1"/>
+		                                <field name="image_fname" invisible="1" />
+		                        	</group>
+	                        	</form>
+	                        	<tree>
+	                        		<field name="image_fname"/>
+	                        	</tree>
+	                        </field>
+	                	</group>
+	                </page>
+				</xpath>
+			</field>
+		</record>	 
+	</data>
+</openerp>

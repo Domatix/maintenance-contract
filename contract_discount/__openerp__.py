@@ -11,7 +11,7 @@
     'data': [
         'views/contract_view.xml',
     ],
-    'test': ['test/contract_discount.yml'],
+    #'test': ['test/contract_discount.yml'],
     'installable': True,
     'application': False,
     'auto_install': False,

@@ -1,0 +1,185 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * contract_work_order_measures
+# angel <angel.moya@domatix.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-13 11:43+0000\n"
+"PO-Revision-Date: 2015-06-13 13:46+0200\n"
+"Last-Translator: angel <angel.moya@domatix.com>\n"
+"Language-Team: Domatix\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#. module: contract_work_order_measures
+#: model:ir.model,name:contract_work_order_measures.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: contract_work_order_measures
+#: selection:contract.measure,type:0
+#: selection:maintenance.work.line.measure,type:0
+msgid "Check"
+msgstr "Check"
+
+#. module: contract_work_order_measures
+#: field:account.analytic.invoice.line.measure,contract_line_id:0
+msgid "Contract Line"
+msgstr "Linea de contrato"
+
+#. module: contract_work_order_measures
+#: field:account.analytic.invoice.line.measure,create_uid:0
+#: field:contract.measure,create_uid:0
+#: field:contract.measure.list,create_uid:0
+#: field:maintenance.work.line.measure,create_uid:0
+#: field:product.measure,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: contract_work_order_measures
+#: field:account.analytic.invoice.line.measure,create_date:0
+#: field:contract.measure,create_date:0
+#: field:contract.measure.list,create_date:0
+#: field:maintenance.work.line.measure,create_date:0
+#: field:product.measure,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: contract_work_order_measures
+#: field:account.analytic.invoice.line.measure,id:0
+#: field:contract.measure,id:0
+#: field:contract.measure.list,id:0
+#: field:maintenance.work.line.measure,id:0
+#: field:product.measure,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: contract_work_order_measures
+#: field:account.analytic.invoice.line.measure,write_uid:0
+#: field:contract.measure,write_uid:0
+#: field:contract.measure.list,write_uid:0
+#: field:maintenance.work.line.measure,write_uid:0
+#: field:product.measure,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: contract_work_order_measures
+#: field:account.analytic.invoice.line.measure,write_date:0
+#: field:contract.measure,write_date:0
+#: field:contract.measure.list,write_date:0
+#: field:maintenance.work.line.measure,write_date:0
+#: field:product.measure,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: contract_work_order_measures
+#: view:contract.measure:contract_work_order_measures.contract_measure_form
+#: selection:contract.measure,type:0
+#: selection:maintenance.work.line.measure,type:0
+msgid "List of Values"
+msgstr "Lista de valores"
+
+#. module: contract_work_order_measures
+#: field:contract.measure,list_ids:0
+msgid "List of values"
+msgstr "Lista de valores"
+
+#. module: contract_work_order_measures
+#: field:maintenance.work.line.measure,name:0
+msgid "Meassure"
+msgstr "Medida"
+
+#. module: contract_work_order_measures
+#: field:account.analytic.invoice.line.measure,measure_id:0
+#: field:contract.measure,name:0
+#: field:contract.measure.list,measure_id:0
+#: field:maintenance.work.line.measure,measure_id:0
+#: field:product.measure,measure_id:0
+msgid "Measure"
+msgstr "Medida"
+
+#. module: contract_work_order_measures
+#: view:account.analytic.account:contract_work_order_measures.account_analytic_account_form_multiperiod_form
+#: field:account.analytic.invoice.line,measure_ids:0
+#: field:maintenance.work.line,measure_ids:0
+#: view:maintenance.work.order:contract_work_order_measures.view_work_order_form_order_measures
+#: view:product.template:contract_work_order_measures.product_template_contract_measure_form_view
+#: field:product.template,measure_ids:0
+msgid "Measures"
+msgstr "Medidas"
+
+#. module: contract_work_order_measures
+#: field:account.analytic.invoice.line.measure,name:0
+#: field:product.measure,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: contract_work_order_measures
+#: view:account.analytic.account:contract_work_order_measures.account_analytic_account_form_multiperiod_form
+#: field:account.analytic.invoice.line.measure,notes:0
+#: view:contract.measure:contract_work_order_measures.contract_measure_form
+#: field:contract.measure,notes:0
+#: field:maintenance.work.line.measure,notes:0
+#: view:maintenance.work.order:contract_work_order_measures.view_work_order_form_order_measures
+#: field:product.measure,notes:0
+#: view:product.template:contract_work_order_measures.product_template_contract_measure_form_view
+msgid "Notes"
+msgstr "Notas"
+
+#. module: contract_work_order_measures
+#: selection:contract.measure,type:0
+#: selection:maintenance.work.line.measure,type:0
+msgid "Number"
+msgstr "Número"
+
+#. module: contract_work_order_measures
+#: field:product.measure,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: contract_work_order_measures
+#: model:ir.model,name:contract_work_order_measures.model_product_template
+msgid "Product Template"
+msgstr "Plantilla producto"
+
+#. module: contract_work_order_measures
+#: selection:contract.measure,type:0
+#: selection:maintenance.work.line.measure,type:0
+msgid "Text"
+msgstr "Texto"
+
+#. module: contract_work_order_measures
+#: field:contract.measure,type:0
+#: field:maintenance.work.line.measure,type:0
+msgid "Type "
+msgstr "Tipo"
+
+#. module: contract_work_order_measures
+#: field:maintenance.work.line.measure,value_char:0
+#: field:maintenance.work.line.measure,value_check:0
+#: field:maintenance.work.line.measure,value_list:0
+#: field:maintenance.work.line.measure,value_number:0
+#: view:maintenance.work.order:contract_work_order_measures.view_work_order_form_order_measures
+msgid "Value"
+msgstr "Valor"
+
+#. module: contract_work_order_measures
+#: field:maintenance.work.line.measure,work_order_line_id:0
+msgid "Work Order Line"
+msgstr "Linea de orden de trabajo"
+
+#. module: contract_work_order_measures
+#: field:contract.measure.list,name:0
+msgid "name"
+msgstr "Nombre"
+
+#. module: contract_work_order_measures
+#: view:account.analytic.account:contract_work_order_measures.account_analytic_account_form_work_multiperiod_form
+msgid "⇒ create work multiperiod"
+msgstr "⇒ crear ordenes de trabajo"

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem name="Maintenance" id="menu_maintenance" sequence="60"/>
+        <menuitem id="maintenance_work_orders_menu" name="Work Orders" parent="menu_maintenance" sequence="20"/>
+    </data>
+</openerp>

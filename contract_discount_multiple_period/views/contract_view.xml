@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+
+		<record id="account_analytic_account_form_discount_multiple_period"
+			model="ir.ui.view">
+			<field name="name">account.analytic.account.invoice.discount.multiple
+			</field>
+			<field name="model">account.analytic.account</field>
+			<field name="inherit_id"
+				ref="contract_multiple_period.account_analytic_account_form_multiperiod_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='price_unit']" position="after">
+					<field name="discount" />
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</openerp>

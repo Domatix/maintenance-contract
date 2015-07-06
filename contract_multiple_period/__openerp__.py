@@ -10,8 +10,10 @@
     'category': 'Sales Management',
     'data': [
         'views/contract_view.xml',
-        'data/month_data.xml'
+        'data/month_data.xml',
+        'security/ir.model.access.csv'
     ],
+    #'test': ['test/contract_multiple_period.yml'],
     'installable': True,
     'application': False,
     'auto_install': False,

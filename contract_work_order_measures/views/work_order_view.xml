@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		<record id="view_work_order_form_order_measures" model="ir.ui.view">
+			<field name="name">Work Order Measures</field>
+			<field name="model">maintenance.work.order</field>
+			<field name="inherit_id" ref="contract_work_order.view_work_order_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='line_ids']/form/group[@name='general']"
+					position="after">
+					<group string="Measures">
+						<field name="measure_ids" nolabel="1">
+							<form>
+								<group name="measure_general">
+									<field name="name" />
+									<field name="measure_id" />
+									<field name="type"/>
+								</group>
+								<group string="Value" name="measure_value">
+									<field name="value_check" nolabel="1" attrs="{'invisible': [('type','!=','check')]}"/>
+									<field name="value_char" nolabel="1" attrs="{'invisible': [('type','!=','char')]}"/>
+									<field name="value_number" nolabel="1" attrs="{'invisible': [('type','!=','number')]}"/>
+									<field name="value_list" nolabel="1" attrs="{'invisible': [('type','!=','list')]}"/>
+								</group>
+								<group string="Notes" name="measure_notes">
+									<field name="notes" nolabel="1" />
+								</group>
+							</form>
+							<tree>
+								<field name="name" />
+								<field name="measure_id" />
+								<field name="computed_value" />
+							</tree>
+						</field>
+					</group>
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</openerp>

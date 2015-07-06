@@ -1,0 +1,90 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* contract_html_description_line
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-22 09:49+0000\n"
+"PO-Revision-Date: 2015-06-22 11:49+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: contract_html_description_line
+#: selection:product.meassure,type:0
+msgid "Check"
+msgstr "Check"
+
+#. module: contract_html_description_line
+#: view:account.analytic.account:contract_html_description_line.account_analytic_account_html_description_contrac_line
+#: field:account.analytic.invoice.line,contract_description_line:0
+#: view:product.template:contract_html_description_line.product_template_contract_form_view
+#: field:product.template,contract_description_line:0
+msgid "Contract Description"
+msgstr "Contract Description"
+
+#. module: contract_html_description_line
+#: field:product.meassure,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: contract_html_description_line
+#: field:product.meassure,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: contract_html_description_line
+#: field:product.meassure,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: contract_html_description_line
+#: field:product.meassure,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: contract_html_description_line
+#: field:product.meassure,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: contract_html_description_line
+#: field:product.meassure,name:0
+msgid "Measure"
+msgstr "Measure"
+
+#. module: contract_html_description_line
+#: field:product.meassure,notes:0
+msgid "Notes"
+msgstr "Notes"
+
+#. module: contract_html_description_line
+#: selection:product.meassure,type:0
+msgid "Number"
+msgstr "Number"
+
+#. module: contract_html_description_line
+#: field:product.meassure,product_id:0
+msgid "Product"
+msgstr "Product"
+
+#. module: contract_html_description_line
+#: model:ir.model,name:contract_html_description_line.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: contract_html_description_line
+#: selection:product.meassure,type:0
+msgid "Text"
+msgstr "Text"
+
+#. module: contract_html_description_line
+#: field:product.meassure,type:0
+msgid "Type"
+msgstr "Type"

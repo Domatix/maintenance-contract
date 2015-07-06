@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+
+		<record id="account_analytic_account_form_work" model="ir.ui.view">
+			<field name="name">account.analytic.account.invoice.form.work</field>
+			<field name="model">account.analytic.account</field>
+			<field name="inherit_id"
+				ref="account_analytic_analysis.account_analytic_account_form_form" />
+			<field name="arch" type="xml">
+				<xpath expr='//button[@name="recurring_create_invoice"]'
+					position='after'>
+					<button class="oe_link" name="recurring_create_work"
+						attrs="{'invisible': [('recurring_invoices','!=',True)]}" string="⇒ create work"
+						type="object" groups="base.group_no_one" />
+
+					<group>
+						<group>
+							<field name="computed_next_work_date" />
+						</group>
+						<group>
+							<field name="computed_last_work_date" />
+						</group>
+					</group>
+				</xpath>
+			</field>
+		</record>
+
+		<record id="account_analytic_account_form_multiperiod_work_form"
+			model="ir.ui.view">
+			<field name="name">account.analytic.account.invoice.form.multiperiod.form
+			</field>
+			<field name="model">account.analytic.account</field>
+			<field name="inherit_id"
+				ref="contract_multiple_period.account_analytic_account_form_multiperiod_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//group[@name='invoicing']" position="after">
+					<group string="Work Order" name="work_order">
+						<group name="work_periodicity">
+
+							<field name="work_periodicity_type" />
+
+							<label for="work_recurring_interval"
+								attrs="{'invisible': [('work_periodicity_type','!=','recursive')]}" />
+
+							<div
+								attrs="{'invisible': [('work_periodicity_type','!=','recursive')]}">
+								<field name="work_recurring_interval" class="oe_inline"
+									attrs="{'required': [('work_periodicity_type','=','recursive')]}" />
+								<field name="work_recurring_rule_type" class="oe_inline"
+									attrs="{'required': [('work_periodicity_type','=','recursive')]}" />
+							</div>
+							<field name="work_month_ids" class="oe_inline"
+								attrs="{'invisible': [('work_periodicity_type','!=','month')]}"
+								widget='many2many_tags' />
+							<field name="recurring_next_work_date" />
+							<field name="recurring_last_work_date" readonly="1" />
+							<field name="work_to_invoice"
+								attrs="{'invisible': [('periodicity_type','!=','none')]}" />
+						</group>
+						<group name="work_description">
+							<field name="work_description" nolabel="1" />
+						</group>
+					</group>
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</openerp>
