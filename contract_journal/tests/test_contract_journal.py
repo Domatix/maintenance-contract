@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from openerp.addons.contract_journal.tests.common \
+from odoo.addons.contract_journal.tests.common \
     import TestContractCommon
-from openerp.tools import mute_logger, float_round
+from odoo.tools import mute_logger, float_round
 import time
 
 class TestContractPartner(TestContractCommon):

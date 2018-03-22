@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-from openerp import models, fields, api
+from odoo import models, fields, api
 from dateutil.relativedelta import relativedelta
 
 from datetime import datetime
 import time
 
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 PERIODICITY_TYPE = [
     ('none', 'None'),

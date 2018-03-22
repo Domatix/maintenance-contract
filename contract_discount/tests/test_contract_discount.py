@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from openerp.addons.contract_discount.tests.common \
+from odoo.addons.contract_discount.tests.common \
     import TestContractCommon
-from openerp.tools import mute_logger, float_round
+from odoo.tools import mute_logger, float_round
 
 
 class TestContractRecursive(TestContractCommon):

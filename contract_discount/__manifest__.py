@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Contract Button invoices',
+    'name': 'Contract Discount',
     'version': '0.1',
     'author': 'Domatix',
-    'summary': 'Contract Button invoices',
+    'summary': 'Contract Discount',
     'website': 'http://www.domatix.com',
     'images': [],
-    'depends': ['account_analytic_analysis'],
+    # 'depends': ['account_analytic_analysis'],
+    'depends': ['contract'],
     'category': 'Sales Management',
     'data': [
         'views/contract_view.xml',

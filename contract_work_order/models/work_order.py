@@ -18,10 +18,10 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from odoo import models, fields, api
 import openerp.addons.decimal_precision as dp
-from openerp.exceptions import except_orm
-from openerp.tools.translate import _
+from odoo.exceptions import except_orm
+from odoo.tools.translate import _
 import time
 
 

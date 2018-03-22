@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from openerp.addons.contract_multiple_period.tests.common \
+from odoo.addons.contract_multiple_period.tests.common \
     import TestContractCommon
-from openerp.tools import mute_logger
+from odoo.tools import mute_logger
 
 
 class TestContractRecursive(TestContractCommon):

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from openerp.addons.contract_work_order_measures.tests.common \
+from odoo.addons.contract_work_order_measures.tests.common \
     import TestOrderMesasuresCommon
-from openerp.tools import mute_logger, float_round
+from odoo.tools import mute_logger, float_round
 import time
 
 class TestWorkOrder(TestOrderMesasuresCommon):

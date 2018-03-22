@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Contract Discount',
+    'name': 'Contract Button invoices',
     'version': '0.1',
     'author': 'Domatix',
-    'summary': 'Contract Discount',
+    'summary': 'Contract Button invoices',
     'website': 'http://www.domatix.com',
     'images': [],
-    'depends': ['account_analytic_analysis'],
+    'depends': ['contract'],
     'category': 'Sales Management',
     'data': [
         'views/contract_view.xml',
     ],
-    #'test': ['test/contract_discount.yml'],
     'installable': True,
     'application': False,
     'auto_install': False,
