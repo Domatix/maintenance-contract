@@ -6,7 +6,7 @@
     'summary': 'Contract Draft',
     'website': 'http://www.domatix.com',
     'images': [],
-    'depends': ['account_analytic_analysis'],
+    'depends': ['contract'],
     'category': 'Sales Management',
     'data': [
         'views/draft_view.xml'

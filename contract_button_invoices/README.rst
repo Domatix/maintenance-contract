@@ -1,10 +1,10 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License
 
-Contract Discount
+Contract Invoices Button 
 =================
 
-This module was written to extend the functionality of contracts to support set discount on contract invoice lintes.
+This module was written to extend the functionality of contracts, adding invoices button to view asociated invoces.
 
 Credits
 =======
@@ -22,4 +22,3 @@ Maintainer
    :target: http://domatix.com
 
 This module is maintained by Domatix.
-

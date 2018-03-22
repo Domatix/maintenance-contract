@@ -4,7 +4,7 @@
 Contract Discount
 =================
 
-This module was written to extend the functionality of contracts to support set discount on contract invoice lintes.
+This module was written to extend the functionality of contracts to support set discount on contract invoice lines.
 
 Credits
 =======
@@ -22,4 +22,3 @@ Maintainer
    :target: http://domatix.com
 
 This module is maintained by Domatix.
-
