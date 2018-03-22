@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
-from odoo.addons.decimal_precision import decimal_precision as dp
+from odoo.addons import decimal_precision as dp
 
 
 class AccountAnalyticInvoiceLine(models.Model):
