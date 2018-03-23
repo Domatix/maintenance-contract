@@ -25,20 +25,3 @@ class ProductProduct(models.Model):
     _inherit = 'product.template'
 
     contract_description_line = fields.Html("Contract Description")
-
-
-class ProductMeassure(models.Model):
-    """ Operation Meassuer"""
-    _name = 'product.meassure'
-
-    name = fields.Char(
-        string='Measure',
-        required=True)
-    notes = fields.Html(
-        string='Notes')
-    product_id = fields.Many2one(
-        'product.template',
-        string='Product')
-    type = fields.Selection(
-        [('check', 'Check'),('text', 'Text'),('number', 'Number')],
-        string='Type')

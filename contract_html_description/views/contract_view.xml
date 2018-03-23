@@ -1,23 +1,22 @@
 <?xml version="1.0"?>
 <odoo>
-	<data>
 
 		<record id="account_analytic_account_html_description_form"	model="ir.ui.view">
 			<field name="name">account.analytic.account.html.description.form</field>
 			<field name="model">account.analytic.account</field>
-			<field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
+			<field name="inherit_id" ref="contract.account_analytic_account_recurring_form_form"/>
 			<field name="arch" type="xml">
-				<notebook position="inside">
-					<page string="Contract Description" name="contract_description"
-						attrs="{'invisible':[('type','not in',['contract', 'template'])]}">
+				<xpath expr="//group[@name='group_legend']" position='after'>
+					<!-- <page string="Contract Description" name="contract_description"
+						attrs="{'invisible':[('type','not in',['contract', 'template'])]}"> -->
+					<!-- <page string="Contract Description" name="contract_description"> -->
 
 						<separator string="Description" name="html_description" />
 						<field name="html_description" />
-					</page>
-				</notebook>
+					<!-- </page> -->
+				</xpath>
 
 			</field>
 		</record>
 
-	</data>
 </odoo>

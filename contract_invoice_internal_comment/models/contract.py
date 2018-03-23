@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class AccountAnalyticAccount(models.Model):
@@ -8,10 +8,10 @@ class AccountAnalyticAccount(models.Model):
     invoice_internal_comment = fields.Text(
         'Invoice Internal Information')
 
-    def _prepare_invoice_data(self, cr, uid, contract, context=None):
-        context = context or {}
-        invoice = super(AccountAnalyticAccount, self)._prepare_invoice_data(
-            cr, uid, contract, context=context)
+    @api.multi
+    def _prepare_invoice(self):
+        self.ensure_one()
+        invoice = super(AccountAnalyticAccount, self)._prepare_invoice()
         invoice.update({
-            'internal_comment': contract.invoice_internal_comment})
+            'internal_comment': self.invoice_internal_comment})
         return invoice

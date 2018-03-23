@@ -58,101 +58,87 @@ class AccountAnalyticAccount(models.Model):
         'Date of Last Invoice',
         compute='_compute_last_date'
         )
-    
+
     @api.onchange('date_start')
     def onchange_date_start(self):
         self.computed_next_date = self.date_start
 
-    def _prepare_invoice_lines(self, cr, uid, contract, fiscal_position_id,
-                               context=None):
-        fpos_obj = self.pool.get('account.fiscal.position')
-        fiscal_position = None
-        if fiscal_position_id:
-            fiscal_position = fpos_obj.browse(cr, uid,
-                                              fiscal_position_id,
-                                              context=context)
-        invoice_lines = []
-        date_for_invoice = contract.computed_next_date
-        if date_for_invoice <= fields.Datetime.now():
-            for line in contract.recurring_invoice_line_ids:
-                if line.recurring_next_date == date_for_invoice:
-                    if line.periodicity_type not in ('unique',
-                                                     'recursive',
-                                                     'month'):
-                        continue
-                    line.set_next_period_date()
-                    account_id = line.product_id.property_account_income.id
-                    if not account_id:
-                        account_id = \
-                            line.product_id.categ_id.\
-                            property_account_income_categ.id
-                    account_id = fpos_obj.map_account(
-                        cr, uid, fiscal_position, account_id)
+    @api.model
+    def _prepare_invoice_line(self, line, invoice_id):
+        date_for_invoice = line.analytic_account_id.computed_next_date
+        if line.recurring_next_date:
+            if line.recurring_next_date == date_for_invoice:
+                if line.periodicity_type not in ('unique', 'recursive', 'month'):
+                    return False
+                vals = super(AccountAnalyticAccount, self)._prepare_invoice_line(
+                    line, invoice_id)
 
-                    taxes = line.product_id.taxes_id or False
-                    tax_id = fpos_obj.map_tax(cr, uid, fiscal_position, taxes)
+                line.set_next_period_date()
 
-                    invoice_lines.append((0, 0, {
-                        'name': line.name,
-                        'account_id': account_id,
-                        'account_analytic_id': contract.id,
-                        'price_unit': line.price_unit or 0.0,
-                        'quantity': line.quantity,
-                        'uos_id': line.uom_id.id or False,
-                        'product_id': line.product_id.id or False,
-                        'invoice_line_tax_id': [(6, 0, tax_id)],
-                        #'date_invoice':line.recurring_next_date
-                    }))
-                    
-        return invoice_lines
-
-    def _recurring_create_invoice(self, cr, uid, ids,
-                                  automatic=False, context=None):
-        invoice_obj = self.pool['account.invoice']
-        context = context or {}
-        invoice_ids = []
-        current_date = time.strftime('%Y-%m-%d')
-        if ids:
-            contract_ids = ids
+                return vals
         else:
-            contract_ids = self.search(cr, uid,
-                                       [('computed_next_date',
-                                         '<=', current_date),
-                                        ('state', '=', 'open'),
-                                        ('recurring_invoices', '=', True),
-                                        ('type', '=', 'contract')])
-        if contract_ids:
-            cr.execute(
-                'SELECT company_id, array_agg(id) as ids '
-                'FROM account_analytic_account '
-                'WHERE id IN %s GROUP BY company_id', (tuple(contract_ids),))
-            for c_id, ids in cr.fetchall():
-                for contract in self.browse(cr, uid, ids,
-                                            context=dict(context,
-                                                         company_id=c_id,
-                                                         force_company=c_id)):
-                    try:                       
-                        invoice_values = self._modify_recurring_date(cr, uid,
-                                                               contract,
-                                                               context=context)
-                        if invoice_values['invoice_line'] != []:
-                            invoice_ids.append(
-                                invoice_obj.create(cr, uid,
-                                                   invoice_values,
-                                                   context=context))
-                        if automatic:
-                            cr.commit()
-                    except Exception:
-                        if automatic:
-                            cr.rollback()
-                        else:
-                            raise
-        return invoice_ids
+            return False
 
-    def _modify_recurring_date(self, cr, uid,contract,context):
-        contract.recurring_next_date = contract.computed_next_date        
-        return self._prepare_invoice(cr, uid,contract,context=context)
-        
+    @api.multi
+    def _create_invoice(self):
+        self.ensure_one()
+        invoice_vals = self._prepare_invoice()
+        invoice = self.env['account.invoice'].create(invoice_vals)
+        for line in self.recurring_invoice_line_ids:
+            invoice_line_vals = self._prepare_invoice_line(line, invoice.id)
+            if invoice_line_vals:
+                self.env['account.invoice.line'].create(invoice_line_vals)
+        invoice.compute_taxes()
+        return invoice
+
+    # def _recurring_create_invoice(self, cr, uid, ids,
+    #                               automatic=False, context=None):
+    #     invoice_obj = self.pool['account.invoice']
+    #     context = context or {}
+    #     invoice_ids = []
+    #     current_date = time.strftime('%Y-%m-%d')
+    #     if ids:
+    #         contract_ids = ids
+    #     else:
+    #         contract_ids = self.search(cr, uid,
+    #                                    [('computed_next_date',
+    #                                      '<=', current_date),
+    #                                     ('state', '=', 'open'),
+    #                                     ('recurring_invoices', '=', True),
+    #                                     ('type', '=', 'contract')])
+    #     if contract_ids:
+    #         cr.execute(
+    #             'SELECT company_id, array_agg(id) as ids '
+    #             'FROM account_analytic_account '
+    #             'WHERE id IN %s GROUP BY company_id', (tuple(contract_ids),))
+    #         for c_id, ids in cr.fetchall():
+    #             for contract in self.browse(cr, uid, ids,
+    #                                         context=dict(context,
+    #                                                      company_id=c_id,
+    #                                                      force_company=c_id)):
+    #                 try:
+    #                     invoice_values = self._modify_recurring_date(cr, uid,
+    #                                                            contract,
+    #                                                            context=context)
+    #                     if invoice_values['invoice_line'] != []:
+    #                         invoice_ids.append(
+    #                             invoice_obj.create(cr, uid,
+    #                                                invoice_values,
+    #                                                context=context))
+    #                     if automatic:
+    #                         cr.commit()
+    #                 except Exception:
+    #                     if automatic:
+    #                         cr.rollback()
+    #                     else:
+    #                         raise
+    #     return invoice_ids
+
+    # def _modify_recurring_date(self):
+    #     self.recurring_next_date = self.computed_next_date
+    #     return self._prepare_invoice()
+
+
 class AccountAnalyticInvoiceLine(models.Model):
     _inherit = "account.analytic.invoice.line"
 

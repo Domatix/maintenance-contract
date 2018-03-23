@@ -1,15 +1,14 @@
 <?xml version="1.0"?>
 <odoo>
 	<data>
-		<record id="account_analytic_account_html_description_contrac_line"
-			model="ir.ui.view">
-			<field name="name">account.analytic.account.html.description.contrac.line </field>
+		<record id="account_analytic_account_html_description_contrac_line" model="ir.ui.view">
+			<field name="name">account.analytic.account.html.description.contrac.line</field>
 			<field name="model">account.analytic.account</field>
 			<field name="inherit_id" ref="contract_multiple_period.account_analytic_account_form_multiperiod_form" />
 			<field name="arch" type="xml">
-				<xpath expr="//group[@string='Invoicing']" position="after">
+				<xpath expr="//group[@name='invoicing']" position="after">
 						<group string="Contract Description">
-					   	 	<field name="contract_description_line" nolabel="1" /> 
+					   	 	<field name="contract_description_line" nolabel="1" />
 					   	</group>
 				</xpath>
 			</field>

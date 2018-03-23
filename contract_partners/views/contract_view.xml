@@ -5,7 +5,7 @@
 		<record id="account_analytic_account_partner_form" model="ir.ui.view">
 			<field name="name">account.analytic.account.partner.form</field>
 			<field name="model">account.analytic.account</field>
-			<field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
+			<field name="inherit_id" ref="contract.account_analytic_account_recurring_form_form" />
 			<field name="arch" type="xml">
 				<xpath expr="//field[@name='partner_id']" position="after">
 					<field name="service_partner_id"
@@ -20,11 +20,10 @@
 
 
 		<!-- Inherited Analytic Account list for contracts -->
-		<record id="view_account_analytic_account_partner_tree"
-			model="ir.ui.view">
+		<record id="view_account_analytic_account_partner_tree"	model="ir.ui.view">
 			<field name="name">account.analytic.account.partner.list</field>
 			<field name="model">account.analytic.account</field>
-			<field name="inherit_id" ref="account.view_account_analytic_account_list" />
+			<field name="inherit_id" ref="contract.view_account_analytic_account_journal_tree" />
 			<field name="arch" type="xml">
 				<field name="partner_id" position="after">
 					<field name="service_partner_id" />

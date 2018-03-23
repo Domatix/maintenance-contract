@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class AccountAnalyticAccount(models.Model):
@@ -13,13 +13,13 @@ class AccountAnalyticAccount(models.Model):
         'res.partner',
         string="Contact Address")
 
-    def _prepare_invoice_data(self, cr, uid, contract, context=None):
-        context = context or {}
-        invoice = super(AccountAnalyticAccount, self)._prepare_invoice_data(
-            cr, uid, contract, context=context)
+    @api.multi
+    def _prepare_invoice(self):
+        self.ensure_one()
+        invoice = super(AccountAnalyticAccount, self)._prepare_invoice()
         invoice.update({
-            'service_partner_id': contract.service_partner_id
-            and contract.service_partner_id.id,
-            'contact_partner_id': contract.contact_partner_id
-            and contract.contact_partner_id.id})
+            'service_partner_id': self.service_partner_id
+            and self.service_partner_id.id,
+            'contact_partner_id': self.contact_partner_id
+            and self.contact_partner_id.id})
         return invoice
