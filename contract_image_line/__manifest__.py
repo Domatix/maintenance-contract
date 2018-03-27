@@ -6,7 +6,7 @@
     'summary': 'Contract html Description Line',
     'website': 'http://www.domatix.com',
     'images': [],
-    'depends': ['account_analytic_analysis',
+    'depends': ['contract',
                  'contract_multiple_period',
                  'product_attachment_images',
                  ],

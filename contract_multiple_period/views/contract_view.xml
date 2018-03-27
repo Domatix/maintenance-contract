@@ -7,33 +7,36 @@
 			<field name="model">account.analytic.account</field>
 			<field name="inherit_id" ref="contract.account_analytic_account_recurring_form_form"/>
 			<field name="arch" type="xml">
+				<xpath expr="//field[@name='recurring_rule_type']" position="replace">
+				</xpath>
 				<xpath expr="//field[@name='recurring_interval']" position="replace">
 				</xpath>
-				<xpath expr="//field[@name='recurring_rule_type']" position="replace">
+				<xpath expr="//group[2]/div[1]" position="replace">
+					 <!-- <attribute name="invisible">True</attribute> -->
 				</xpath>
 				<xpath expr="//label[@for='recurring_interval']" position="replace">
 					<label for="periodicity_type" attrs="{'invisible': True}" />
-					<div>
+					<!-- <div> -->
 						<field name="periodicity_type" class="oe_inline" attrs="{'invisible':True}" />
-					</div>
+					<!-- </div> -->
 					<label for="recurring_interval" attrs="{'invisible': True}" />
-					<div attrs="{'invisible': [('periodicity_type','!=','recursive')]}">
+					<!-- <div attrs="{'invisible': [('periodicity_type','!=','recursive')]}"> -->
 						<field name="recurring_interval" class="oe_inline"
 							attrs="{'required': [('recurring_invoices', '=', True),('periodicity_type','=','recursive')],'invisible': True}" />
 						<field name="recurring_rule_type" class="oe_inline"
 							attrs="{'required': [('recurring_invoices', '=', True),('periodicity_type','=','recursive')],'invisible': True}" />
-					</div>
+					<!-- </div> -->
 					<field name="month_ids"
 						attrs="{'invisible': [('periodicity_type','!=','month')]}"
 						options="{'no_create':'1'}" widget='many2many_tags' />
-					<div></div>
+					<!-- <div></div> -->
 				</xpath>
 
 				<xpath expr="//field[@name='recurring_invoice_line_ids']"
 					position="replace">
 					<field name="recurring_invoice_line_ids"
 						context="{'default_periodicity_type': periodicity_type,'default_recurring_interval':recurring_interval,'default_recurring_rule_type':recurring_rule_type,'default_month_ids':month_ids}">
-						<form string="Account Analytic Lines">
+						<form name="account_analytic_lines" string="Account Analytic Lines">
 							<group name="general">
 								<group string="Product" name="product">
 									<field name="product_id"
@@ -84,16 +87,10 @@
 					</field>
 				</xpath>
 
-				<field name="recurring_next_date" position="replace">
-					<group>
-						<group>
+				<!-- <field name="recurring_next_date" position="after">
 							<field name="computed_next_date" />
-						</group>
-						<group>
 							<field name="computed_last_date" />
-						</group>
-					</group>
-				</field>
+				</field> -->
 
 			</field>
 		</record>

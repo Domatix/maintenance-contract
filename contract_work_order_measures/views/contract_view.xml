@@ -1,16 +1,12 @@
 <?xml version="1.0"?>
 <odoo>
 	<data>
-		<record id="account_analytic_account_form_multiperiod_form_order_measures"
-			model="ir.ui.view">
-			<field name="name">account.analytic.account.invoice.form.multiperiod.form.order.measures
-			</field>
+		<record id="account_analytic_account_form_multiperiod_form_order_measures"	model="ir.ui.view">
+			<field name="name">account.analytic.account.invoice.form.multiperiod.form.order.measures</field>
 			<field name="model">account.analytic.account</field>
-			<field name="inherit_id"
-				ref="contract_multiple_period.account_analytic_account_form_multiperiod_form" />
+			<field name="inherit_id" ref="contract_multiple_period.account_analytic_account_form_multiperiod_form" />
 			<field name="arch" type="xml">
-				<xpath expr="//form[@string='Account Analytic Lines']"
-					position="inside">
+				<xpath expr="//form[@name='account_analytic_lines']"	position="inside">
 					<group string="Measures">
 						<field name="measure_ids" nolabel="1">
 							<form>
@@ -32,13 +28,10 @@
 			</field>
 		</record>
 
-		<record id="account_analytic_account_form_work_multiperiod_form"
-			model="ir.ui.view">
-			<field name="name">account.analytic.account.form_work.multiperiod.form
-			</field>
+		<record id="account_analytic_account_form_work_multiperiod_form" model="ir.ui.view">
+			<field name="name">account.analytic.account.form_work.multiperiod.form</field>
 			<field name="model">account.analytic.account</field>
-			<field name="inherit_id"
-				ref="contract_work_order.account_analytic_account_form_work" />
+			<field name="inherit_id" ref="contract_work_order.account_analytic_account_form_work" />
 			<field name="arch" type="xml">
 				<xpath expr='//button[@name="recurring_create_work"]'
 					position='replace'>

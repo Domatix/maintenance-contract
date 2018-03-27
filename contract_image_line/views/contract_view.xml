@@ -6,7 +6,7 @@
 			<field name="model">account.analytic.account</field>
 			<field name="inherit_id" ref="contract_multiple_period.account_analytic_account_form_multiperiod_form" />
 			<field name="arch" type="xml">
-				<xpath expr="//group[@string='Description']" position="before">
+				<xpath expr="//group[@name='invoicing']" position="before">
 					<page string="Images">
 						<group string="Images">
 	                        <field name="image_ids" nolabel="1">
@@ -24,6 +24,6 @@
 	                </page>
 				</xpath>
 			</field>
-		</record>	 
+		</record>
 	</data>
 </odoo>

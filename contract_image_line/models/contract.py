@@ -6,16 +6,16 @@ class AccountAnalyticAccountInherit(models.Model):
     _inherit = 'account.analytic.invoice.line'
 
     @api.onchange('product_id')
-    def on_change_productid_update_images_ids(self): 
+    def on_change_productid_update_images_ids(self):
         image_lines = []
-        for imageProduct in self.product_id.image_ids: 
+        for imageProduct in self.product_id.image_ids:
              image_lines.append((0,0,{
                         'image':imageProduct.image,
                         'image_fname': imageProduct.image_fname
-                        }))           
-        self.update({'image_ids':image_lines})        
-    
-    
+                        }))
+        self.update({'image_ids':image_lines})
+
+
 
     image_ids = fields.One2many(
         'line.images',
@@ -28,12 +28,12 @@ class AccountAnalyticAccountInherit(models.Model):
         string='Attachment'
         )
     image_variant = fields.Binary(
-        string='Image Variant', 
+        string='Image Variant',
         filters='*.png,*.jpg,*.gif',
         compute='_get_attachment_image_variant',
         inverse='_set_attachment_image_variant',
         )
-    
+
     @api.one
     def _get_attachment_image_variant(self):
         self.image = self.attachment_image_variant_id and self.attachment_image_variant_id.datas
@@ -67,7 +67,7 @@ class ProductImages(models.Model):
         string='Attachment'
         )
     image = fields.Binary(
-        string='Image', 
+        string='Image',
         filters='*.png,*.jpg,*.gif',
         compute='_get_attachment_image',
         inverse='_set_attachment_image',
@@ -75,7 +75,7 @@ class ProductImages(models.Model):
     image_fname = fields.Char(
         string='File Name'
         )
-    
+
     @api.one
     def _get_attachment_image(self):
         self.image = self.attachment_id and self.attachment_id.datas
@@ -93,5 +93,3 @@ class ProductImages(models.Model):
             }
             attachment = self.env['ir.attachment'].create(values)
             self.attachment_id = attachment.id
-
-    

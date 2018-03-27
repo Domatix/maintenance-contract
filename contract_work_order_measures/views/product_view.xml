@@ -5,10 +5,9 @@
 		<record id="product_template_contract_measure_form_view" model="ir.ui.view">
 			<field name="name">product.template.contract.measure.form</field>
 			<field name="model">product.template</field>
-			<field name="inherit_id"
-				ref="contract_work_order.product_template_contract_form_view" />
+			<field name="inherit_id" ref="contract_work_order.product_template_contract_form_view" />
 			<field name="arch" type="xml">
-				<xpath expr="//page[@string='Contract Data']" position="inside">
+				<xpath expr="//page[@name='contract_data']" position="inside">
 					<group string="Measures">
 						<field name="measure_ids" nolabel="1">
 							<form>

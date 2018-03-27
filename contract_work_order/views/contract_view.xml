@@ -5,13 +5,11 @@
 		<record id="account_analytic_account_form_work" model="ir.ui.view">
 			<field name="name">account.analytic.account.invoice.form.work</field>
 			<field name="model">account.analytic.account</field>
-			<field name="inherit_id"
-				ref="account_analytic_analysis.account_analytic_account_form_form" />
+			<field name="inherit_id" ref="contract.account_analytic_account_recurring_form_form" />
 			<field name="arch" type="xml">
-				<xpath expr='//button[@name="recurring_create_invoice"]'
-					position='after'>
+				<xpath expr='//button[@name="recurring_create_invoice"]' position='after'>
 					<button class="oe_link" name="recurring_create_work"
-						attrs="{'invisible': [('recurring_invoices','!=',True)]}" string="⇒ create work"
+						attrs="{'invisible': [('recurring_invoices','!=',True)]}" string="Create work"
 						type="object" groups="base.group_no_one" />
 
 					<group>
@@ -23,16 +21,21 @@
 						</group>
 					</group>
 				</xpath>
+				<xpath expr='//button[@name="contract.act_recurring_invoices"]' position='after'>
+					<button name="contract_work_order.act_recurring_work_orders"
+            type="action"
+            attrs="{'invisible': [('recurring_invoices','!=',True)]}"
+            string="⇒ Show work orders"
+            class="oe_link"
+            />
+			</xpath>
 			</field>
 		</record>
 
-		<record id="account_analytic_account_form_multiperiod_work_form"
-			model="ir.ui.view">
-			<field name="name">account.analytic.account.invoice.form.multiperiod.form
-			</field>
+		<record id="account_analytic_account_form_multiperiod_work_form" model="ir.ui.view">
+			<field name="name">account.analytic.account.invoice.form.multiperiod.form</field>
 			<field name="model">account.analytic.account</field>
-			<field name="inherit_id"
-				ref="contract_multiple_period.account_analytic_account_form_multiperiod_form" />
+			<field name="inherit_id" ref="contract_multiple_period.account_analytic_account_form_multiperiod_form" />
 			<field name="arch" type="xml">
 				<xpath expr="//group[@name='invoicing']" position="after">
 					<group string="Work Order" name="work_order">
@@ -65,6 +68,21 @@
 				</xpath>
 			</field>
 		</record>
+
+
+
+    <record id="act_recurring_work_orders" model="ir.actions.act_window">
+        <field name="name">Work Orders</field>
+        <field name="res_model">maintenance.work.order</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                      (0, 0, {'view_mode': 'tree', 'view_id': ref('contract_work_order.view_work_order_tree')}),
+                      (0, 0, {'view_mode': 'form', 'view_id': ref('contract_work_order.view_work_order_form')})]"/>
+        <field name="context">{
+            'search_default_contract_id': [active_id],
+            'default_contract_id': active_id}
+        </field>
+    </record>
 
 	</data>
 </odoo>

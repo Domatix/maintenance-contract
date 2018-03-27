@@ -384,5 +384,5 @@ msgstr "Año(s)"
 
 #. module: contract_work_order
 #: view:account.analytic.account:contract_work_order.account_analytic_account_form_work
-msgid "⇒ create work"
-msgstr "⇒ crear ordenes de trabajo"
+msgid "Create work"
+msgstr "Crear ordenes de trabajo"

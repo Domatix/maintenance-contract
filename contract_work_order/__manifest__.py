@@ -11,7 +11,7 @@
     'data': [
         'data/work_order_cron.xml',
         'data/work_order_sequence.xml',
-        'data/work_order_workflow.xml',
+        # 'data/work_order_workflow.xml',
         'views/contract_view.xml',
         'views/general_menu.xml',
         'views/work_order_view.xml',

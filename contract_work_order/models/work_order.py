@@ -90,7 +90,7 @@ class WorkOrder(models.Model):
     @api.multi
     def work_planned(self):
         self.state = 'planned'
-        
+
     @api.multi
     def work_done(self):
         self.state = 'done'
@@ -104,53 +104,80 @@ class WorkOrder(models.Model):
 
     @api.one
     def make_sale(self):
-        sale_id = False
-        partner_id = self.partner_id.id
-        date_order = self.datetime_done
-        vals = self.env['sale.order'].onchange_partner_id(partner_id,
-                                                      context=self._context)
-        values = vals['value']
-        pricelist_id = values['pricelist_id']
-        if self.to_invoice:
-            lines = []
-            for line in self.line_ids:
-                line_values = {}
-                product_id = line.product_id.id
-                product_uom_id = line.product_uom_id.id
-                product_uom_qty = line.product_uom_qty
-                vals = self.env['sale.order.line'].product_id_change(
-                                                      pricelist_id,
-                                                      product_id,
-                                                      product_uom_qty,
-                                                      product_uom_id,
-                                                      qty_uos=False,
-                                                      uos=False,
-                                                      name=False,
-                                                      partner_id=partner_id,
-                                                      lang=False,
-                                                      update_tax=True,
-                                                      date_order=date_order,
-                                                      packaging=False,
-                                                      flag=False,
-                                                      context=self._context)
-                line_values = vals['value']
-                line_values.update({
-                               'product_id': product_id,
-                               'product_uom_qty': product_uom_qty,
-                               'product_uom_id': product_uom_id,
-                       })
-                lines.append((0, 0, line_values))
-            values.update({'partner_id': self.partner_id.id,
-                           'date_order': self.datetime_done,
-                           'project_id': self.project_id.id,
-                           'partner_invoice_id': self.partner_invoice_id.id,
-                           'partner_shipping_id': self.partner_shipping_id.id,
-                           'order_line': lines,
-                           'maintenance_sale': True
-                           })
-            sale_id = self.env['sale.order'].create(values)
-        #return False
-        return sale_id.id
+        order_lines = []
+        have_invoice_lines = False
+        for line in self.line_ids:
+            if line.to_invoice:
+                have_invoice_lines = True
+                order_lines.append((0, 0, {
+                            'product_id': line.product_id.id,
+                            'name': line.product_id.name,
+                            'product_uom_qty': line.product_uom_qty,
+                            'price_unit': line.product_id.list_price,
+                       }))
+        # I only entry to create sale.order if have line with the
+        # field to_invoice: True
+        if have_invoice_lines:
+            warehouse_ids = self.env['stock.warehouse'].search([])
+            if len(warehouse_ids) == 0:
+                raise Warning(_('Its necessary have some warehouse.'))
+
+            self.env['sale.order'].create({
+                                    'partner_id': self.partner_id.id,
+                                    'partner_invoice_id': self.partner_id.id,
+                                    'partner_shipping_id': self.partner_id.id,
+                                    'date_order': self.datetime_done,
+                                    'warehouse_id':warehouse_ids[0].id,
+                                    'pricelist_id': 1,
+                                    'order_line': order_lines
+                                    })
+
+
+        # sale_id = False
+        # partner_id = self.partner_id.id
+        # date_order = self.datetime_done
+        # vals = self.env['sale.order'].onchange_partner_id()
+        # values = vals['value']
+        # pricelist_id = values['pricelist_id']
+        # if self.to_invoice:
+        #     lines = []
+        #     for line in self.line_ids:
+        #         line_values = {}
+        #         product_id = line.product_id.id
+        #         product_uom_id = line.product_uom_id.id
+        #         product_uom_qty = line.product_uom_qty
+        #         vals = self.env['sale.order.line'].product_id_change(
+        #                                               pricelist_id,
+        #                                               product_id,
+        #                                               product_uom_qty,
+        #                                               product_uom_id,
+        #                                               qty_uos=False,
+        #                                               uos=False,
+        #                                               name=False,
+        #                                               partner_id=partner_id,
+        #                                               lang=False,
+        #                                               update_tax=True,
+        #                                               date_order=date_order,
+        #                                               packaging=False,
+        #                                               flag=False)
+        #         line_values = vals['value']
+        #         line_values.update({
+        #                        'product_id': product_id,
+        #                        'product_uom_qty': product_uom_qty,
+        #                        'product_uom_id': product_uom_id,
+        #                })
+        #         lines.append((0, 0, line_values))
+        #     values.update({'partner_id': self.partner_id.id,
+        #                    'date_order': self.datetime_done,
+        #                    'project_id': self.project_id.id,
+        #                    'partner_invoice_id': self.partner_invoice_id.id,
+        #                    'partner_shipping_id': self.partner_shipping_id.id,
+        #                    'order_line': lines,
+        #                    'maintenance_sale': True
+        #                    })
+        #     sale_id = self.env['sale.order'].create(values)
+        # #return False
+        # return sale_id.id
 
     @api.model
     def create(self, vals):

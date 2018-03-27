@@ -8,7 +8,7 @@
 			<field name="inherit_id" ref="product.product_template_form_view" />
 			<field name="arch" type="xml">
 				<notebook position="inside">
-					<page string="Contract Data">
+					<page name="contract_data" string="Contract Data">
 						<group string="Work Description">
 							<field name="work_description" nolabel="1"/>
 						</group>

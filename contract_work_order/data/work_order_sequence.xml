@@ -3,10 +3,10 @@
     <data noupdate="1">
 
         <!-- Sequences for maintenance.work.order -->
-        <record id="seq_type_sale_order" model="ir.sequence.type">
+        <!-- <record id="seq_type_sale_order" model="ir.sequence.type">
             <field name="name">Maintenance Work Order</field>
             <field name="code">maintenance.work.order</field>
-        </record>
+        </record> -->
 
         <record id="seq_maintenance_work_order" model="ir.sequence">
             <field name="name">Maintenance Work Order</field>
