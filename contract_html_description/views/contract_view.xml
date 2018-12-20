@@ -12,7 +12,9 @@
 					<!-- <page string="Contract Description" name="contract_description"> -->
 
 						<separator string="Description" name="html_description" />
-						<field name="html_description" />
+						<group>
+							<field name="html_description" />
+						</group>
 					<!-- </page> -->
 				</xpath>
 

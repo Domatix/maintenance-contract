@@ -35,7 +35,7 @@ class WorkOrder(models.Model):
         copy=False,
         readonly=True,
         states={'draft': [('readonly', False)]},
-        select=True,
+        index=True,
         default='/')
     partner_id = fields.Many2one(
         'res.partner',
@@ -44,7 +44,7 @@ class WorkOrder(models.Model):
         states={'draft': [('readonly', False)]},
         required=True,
         change_default=True,
-        select=True,
+        index=True,
         track_visibility='always')
     project_id = fields.Many2one(
         'account.analytic.account',
@@ -208,7 +208,7 @@ class WorkLine(models.Model):
         required=True)
     product_uom_qty = fields.Float(
         string='Quantity',
-        digits_compute=dp.get_precision('Product UoS'),
+        digits=dp.get_precision('Product UoS'),
         required=True,
         default=1)
     product_uom_id = fields.Many2one(
