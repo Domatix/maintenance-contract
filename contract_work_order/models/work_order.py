@@ -122,16 +122,17 @@ class WorkOrder(models.Model):
             if len(warehouse_ids) == 0:
                 raise Warning(_('Its necessary have some warehouse.'))
 
-            self.env['sale.order'].create({
+            sale = self.env['sale.order'].create({
                                     'partner_id': self.partner_id.id,
                                     'partner_invoice_id': self.partner_id.id,
                                     'partner_shipping_id': self.partner_id.id,
                                     'date_order': self.datetime_done,
-                                    'warehouse_id':warehouse_ids[0].id,
+                                    'warehouse_id': warehouse_ids[0].id,
                                     'pricelist_id': 1,
                                     'order_line': order_lines
                                     })
-
+            return sale.id
+        return False
 
         # sale_id = False
         # partner_id = self.partner_id.id
@@ -177,7 +178,7 @@ class WorkOrder(models.Model):
         #                    })
         #     sale_id = self.env['sale.order'].create(values)
         # #return False
-        # return sale_id.id
+
 
     @api.model
     def create(self, vals):
@@ -188,10 +189,10 @@ class WorkOrder(models.Model):
             vals['date'] = time.strftime('%Y-%m-%d')
         return super(WorkOrder, self).create(vals)
 
-    @api.multi
-    @api.onchange('partner_id')
-    def onchange_partner_id(self):
-        return self.env['sale.order'].onchange_partner_id(self.partner_id.id)
+    # @api.multi
+    # @api.onchange('partner_id')
+    # def onchange_partner_id(self):
+    #     return self.env['sale.order'].onchange_partner_id()
 
 
 class WorkLine(models.Model):
