@@ -7,24 +7,17 @@
 			<field name="model">account.analytic.account</field>
 			<field name="inherit_id" ref="contract.account_analytic_account_recurring_form_form" />
 			<field name="arch" type="xml">
-				<field name="recurring_invoice_line_ids" position="attributes">
+				<!-- <field name="recurring_invoice_line_ids" position="attributes">
 					<attribute name="attrs">{'invisible': [('recurring_repairs','=',True)]}</attribute>
-				</field>
-				<field name="recurring_invoice_line_ids" position="after">
-					<field name="recurring_invoice_line_ids" attrs="{'invisible': [('recurring_repairs','=',False)]}">
-						<tree string="Account Analytic Lines" >
-		          <field name="sequence" widget="handle"/>
-		          <field name="product_id"/>
-		          <field name="name"/>
-		          <field name="quotation_notes"/>
-		          <field name="quantity"/>
-		          <field name="uom_id"/>
-		          <field name="automatic_price"/>
-		          <field name="price_unit" attrs="{'readonly': [('automatic_price', '=', True)]}"/>
-		          <field name="specific_price" invisible="1"/>
-		          <field name="discount" groups="sale.group_discount_per_so_line"/>
-		          <field name="price_subtotal"/>
-	          </tree>
+				</field> -->
+				<xpath expr="//div[4]"  position="after">
+					<div>
+              <field name="recurring_repairs" class="oe_inline" nolabel="1"/>
+              <label for="recurring_repairs"/>
+						</div>
+				</xpath>
+				<field name="recurring_invoice_line_ids" position="replace">
+					<field name="recurring_invoice_line_ids" editable="bottom" >
 						<form name="account_analytic_lines" string="Account Analytic Lines">
 							<group name="general">
 								<group string="Product" name="product">
@@ -41,13 +34,50 @@
 							</group>
 							<group string="Repair Order" name="repair">
 								<field name="guarantee_limit" />
-								<field name="operations" />
-								<field name="fees_lines" />
+								<field name="operations" context="{'default_product_uom_qty': quantity}" >
+                  <tree string="Operations" editable="bottom">
+                      <field name="type"/>
+                      <field name="product_id"/>
+                      <field name="name"/>
+                      <field name="product_uom_qty" string="Quantity"/>
+                      <field name="product_uom" string="Unit of Measure" groups="product.group_uom"/>
+                      <field name="price_unit"/>
+                      <field name="tax_id" widget="many2many_tags" domain="[('type_tax_use','=','sale')]"/>
+                      <field name="price_subtotal" widget="monetary"/>
+                  </tree>
+								</field>
+								<field name="fees_lines">
+									<tree string="Fees" editable="bottom">
+	                    <field name="product_id" domain="[('type','=','service')]" required="True"/>
+	                    <field name="name"/>
+	                    <field name="product_uom_qty" string="Quantity"/>
+	                    <field name="product_uom" string="Unit of Measure" groups="product.group_uom"/>
+	                    <field name="price_unit"/>
+	                    <field name="tax_id" domain="[('type_tax_use', '=', 'sale')]" widget="many2many_tags"/>
+	                    <field name="price_subtotal" widget="monetary"/>
+	                </tree>
+								</field>
 								<field name="internal_notes" />
 								<field name="quotation_notes" />
 
 							</group>
 						</form>
+					<!-- <field name="recurring_invoice_line_ids" attrs="{'invisible': [('recurring_repairs','=',False)]}"> -->
+						<tree string="Account Analytic Lines" >
+		          <field name="sequence" widget="handle"/>
+		          <field name="product_id"/>
+		          <field name="name"/>
+							<!-- <field name="recurring_repairs" invisible="1"/> -->
+		          <!-- <field name="quotation_notes" attrs="{'invisible': [('recurring_repairs','=', False)]}"/> -->
+		          <field name="quantity"/>
+		          <field name="uom_id"/>
+		          <field name="automatic_price"/>
+		          <field name="price_unit" attrs="{'readonly': [('automatic_price', '=', True)]}"/>
+		          <field name="specific_price" invisible="1"/>
+		          <field name="discount" groups="sale.group_discount_per_so_line"/>
+		          <field name="price_subtotal"/>
+	          </tree>
+
 					</field>
 				</field>
 

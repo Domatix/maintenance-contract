@@ -5,7 +5,7 @@
     'author': 'Domatix',
     'website': 'http://www.domatix.com',
     'images': [],
-    'depends': ['contract'],
+    'depends': ['contract', 'mrp_repair'],
     'category': 'Partner',
     'data': [
         'data/work_order_cron.xml',
