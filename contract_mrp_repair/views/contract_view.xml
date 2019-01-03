@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+
+		<record id="account_analytic_account_form_work" model="ir.ui.view">
+			<field name="name">account.analytic.account.invoice.form.work</field>
+			<field name="model">account.analytic.account</field>
+			<field name="inherit_id" ref="contract.account_analytic_account_recurring_form_form" />
+			<field name="arch" type="xml">
+				<field name="recurring_invoice_line_ids" position="attributes">
+					<attribute name="attrs">{'invisible': [('recurring_repairs','=',True)]}</attribute>
+				</field>
+				<field name="recurring_invoice_line_ids" position="after">
+					<field name="recurring_invoice_line_ids" attrs="{'invisible': [('recurring_repairs','=',False)]}">
+						<tree string="Account Analytic Lines" >
+		          <field name="sequence" widget="handle"/>
+		          <field name="product_id"/>
+		          <field name="name"/>
+		          <field name="quotation_notes"/>
+		          <field name="quantity"/>
+		          <field name="uom_id"/>
+		          <field name="automatic_price"/>
+		          <field name="price_unit" attrs="{'readonly': [('automatic_price', '=', True)]}"/>
+		          <field name="specific_price" invisible="1"/>
+		          <field name="discount" groups="sale.group_discount_per_so_line"/>
+		          <field name="price_subtotal"/>
+	          </tree>
+						<form name="account_analytic_lines" string="Account Analytic Lines">
+							<group name="general">
+								<group string="Product" name="product">
+									<field name="product_id"/>
+									<field name="name"/>
+									<field name="quantity" />
+									<field name="uom_id" />
+								</group>
+								<group string="Price" name="price">
+									<field name="automatic_price" />
+									<field name="price_unit" attrs="{'readonly': [('automatic_price', '=', True)]}"/>
+									<field name="price_subtotal" />
+								</group>
+							</group>
+							<group string="Repair Order" name="repair">
+								<field name="guarantee_limit" />
+								<field name="operations" />
+								<field name="fees_lines" />
+								<field name="internal_notes" />
+								<field name="quotation_notes" />
+
+							</group>
+						</form>
+					</field>
+				</field>
+
+			</field>
+		</record>
+
+		<record id="account_analytic_account_button_invoice" model="ir.ui.view">
+			<field name="name">account.analytic.account.button.invoice</field>
+			<field name="model">account.analytic.account</field>
+			<field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//div[@name='button_box']" position='inside'>
+					<button class="oe_stat_button"
+						type="action" icon="fa fa-cogs"
+						name="contract_mrp_repair.act_recurring_repair_orders"
+						string="Repair Orders"
+						>
+					</button>
+      	</xpath>
+
+			</field>
+		</record>
+
+
+
+    <record id="act_recurring_repair_orders" model="ir.actions.act_window">
+        <field name="name">Repair Orders</field>
+        <field name="res_model">mrp.repair</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                      (0, 0, {'view_mode': 'tree', 'view_id': ref('mrp_repair.view_repair_order_tree')}),
+                      (0, 0, {'view_mode': 'form', 'view_id': ref('mrp_repair.view_repair_order_form')})]"/>
+        <field name="context">{
+            'search_default_contract_id': [active_id],
+            'default_contract_id': active_id}
+        </field>
+    </record>
+
+	</data>
+</odoo>
