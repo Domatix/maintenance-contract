@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Contract Button invoices',
-    'version': '0.1',
+    'version': '11.0.0.1',
     'author': 'Domatix',
     'summary': 'Contract Button invoices',
     'website': 'http://www.domatix.com',
