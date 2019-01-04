@@ -1,0 +1,229 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* contract_mrp_repair
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-04 12:22+0000\n"
+"PO-Revision-Date: 2019-01-04 12:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: contract_mrp_repair
+#: model:ir.ui.view,arch_db:contract_mrp_repair.account_analytic_account_form_work
+msgid "Account Analytic Lines"
+msgstr "Ver líneas contables analíticas"
+
+#. module: contract_mrp_repair
+#: selection:contract.mrp.repair.line,type:0
+msgid "Add"
+msgstr "Añadir"
+
+#. module: contract_mrp_repair
+#: model:ir.model,name:contract_mrp_repair.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_mrp_repair_contract_id
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_contract_line
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_contract_line
+msgid "Contract Reference"
+msgstr "Referencia contrato"
+
+#. module: contract_mrp_repair
+#: model:ir.model,name:contract_mrp_repair.model_contract_mrp_repair_fee
+msgid "Contract Repair Fees Line"
+msgstr "Línea de tarifas de reparación en contrato"
+
+#. module: contract_mrp_repair
+#: model:ir.model,name:contract_mrp_repair.model_contract_mrp_repair_line
+msgid "Contract Repair Line"
+msgstr "Línea de reparación en contrato"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_create_uid
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_create_date
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_name
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_name
+msgid "Description"
+msgstr "Descripción"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_location_dest_id
+msgid "Dest. Location"
+msgstr "Ubicación destino"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_display_name
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: contract_mrp_repair
+#: model:ir.ui.view,arch_db:contract_mrp_repair.account_analytic_account_form_work
+msgid "Fees"
+msgstr "Cargos"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_account_analytic_account_recurring_repairs
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_account_analytic_invoice_line_recurring_repairs
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_project_project_recurring_repairs
+msgid "Generate repair orders automatically"
+msgstr "Generar órdenes de reparación automáticamente"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_id
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_account_analytic_invoice_line_internal_notes
+msgid "Internal Notes"
+msgstr "Notas internas"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee___last_update
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_write_uid
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_write_date
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_account_analytic_invoice_line_fees_lines
+#: model:ir.ui.view,arch_db:contract_mrp_repair.account_analytic_account_form_work
+msgid "Operations"
+msgstr "Operaciones"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_account_analytic_invoice_line_operations
+msgid "Parts"
+msgstr "Piezas"
+
+#. module: contract_mrp_repair
+#: model:ir.ui.view,arch_db:contract_mrp_repair.account_analytic_account_form_work
+msgid "Price"
+msgstr "Precio"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_product_id
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_product_id
+#: model:ir.ui.view,arch_db:contract_mrp_repair.account_analytic_account_form_work
+msgid "Product"
+msgstr "Producto"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_product_uom
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_product_uom
+msgid "Product Unit of Measure"
+msgstr "Unidad de medida del producto"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_product_uom_qty
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_product_uom_qty
+#: model:ir.ui.view,arch_db:contract_mrp_repair.account_analytic_account_form_work
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_account_analytic_invoice_line_quotation_notes
+msgid "Quotation Notes"
+msgstr "Notas del presupuesto"
+
+#. module: contract_mrp_repair
+#: selection:contract.mrp.repair.line,type:0
+msgid "Remove"
+msgstr "Eliminar"
+
+#. module: contract_mrp_repair
+#: model:ir.model,name:contract_mrp_repair.model_mrp_repair
+#: model:ir.ui.view,arch_db:contract_mrp_repair.account_analytic_account_form_work
+msgid "Repair Order"
+msgstr "Orden reparación"
+
+#. module: contract_mrp_repair
+#: model:ir.actions.act_window,name:contract_mrp_repair.act_recurring_repair_orders
+#: model:ir.ui.view,arch_db:contract_mrp_repair.account_analytic_account_button_invoice
+msgid "Repair Orders"
+msgstr "Órdenes de reparación"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_account_analytic_account_repair_id
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_project_project_repair_id
+msgid "Repairs"
+msgstr "Reparaciones"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_location_id
+msgid "Source Location"
+msgstr "Ubicación origen"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_price_subtotal
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_price_subtotal
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_tax_id
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_tax_id
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_fee_price_unit
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_contract_mrp_repair_line_price_unit
+msgid "Unit Price"
+msgstr "Precio unitario"
+
+#. module: contract_mrp_repair
+#: model:ir.ui.view,arch_db:contract_mrp_repair.account_analytic_account_form_work
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: contract_mrp_repair
+#: model:ir.model.fields,field_description:contract_mrp_repair.field_account_analytic_invoice_line_guarantee_limit
+msgid "Warranty Expiration"
+msgstr "Vencimiento de la garantía"
+
+#. module: contract_mrp_repair
+#: model:ir.model,name:contract_mrp_repair.model_account_analytic_invoice_line
+msgid "account.analytic.invoice.line"
+msgstr "account.analytic.invoice.line"

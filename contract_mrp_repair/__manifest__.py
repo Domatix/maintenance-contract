@@ -8,8 +8,9 @@
     'depends': ['contract', 'mrp_repair'],
     'category': 'Partner',
     'data': [
-        'data/work_order_cron.xml',
+        'security/ir.model.access.csv',
         'views/contract_view.xml',
+        'views/mrp_repair_views.xml',
     ],
     'installable': True,
     'application': False,

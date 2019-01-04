@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+contract_mrp_repair_line_manager,Repair Order Recurring manager,model_contract_mrp_repair_line,account.group_account_manager,1,1,1,1
+contract_mrp_repair_line_user,Repair Order Recurring user,model_contract_mrp_repair_line,account.group_account_invoice,1,0,0,0
+contract_mrp_repair_fee_manager,Contract Repair Fees Line manager,model_contract_mrp_repair_fee,account.group_account_manager,1,1,1,1
+contract_mrp_repair_fee_user,Contract Repair Fees Line user,model_contract_mrp_repair_fee,account.group_account_invoice,1,0,0,0
+access_mrp_repair_user,MRP Repair user,mrp_repair.model_mrp_repair,account.group_account_invoice,1,0,0,0
+access_mrp_repair_manager,MRP Repair manager,mrp_repair.model_mrp_repair,account.group_account_manager,1,1,1,1
+access_mrp_repair_line_user,MRP Repair Line user,mrp_repair.model_mrp_repair_line,account.group_account_invoice,1,0,0,0
+access_mrp_repair_line_manager,MRP Repair Line manager,mrp_repair.model_mrp_repair_line,account.group_account_manager,1,1,1,1
+access_mrp_repair_fee_user,MRP Repair Fee user,mrp_repair.model_mrp_repair_fee,account.group_account_invoice,1,0,0,0
+access_mrp_repair_fee_manager,MRP Repair Fee manager,mrp_repair.model_mrp_repair_fee,account.group_account_manager,1,1,1,1

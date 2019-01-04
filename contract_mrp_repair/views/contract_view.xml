@@ -17,7 +17,20 @@
 						</div>
 				</xpath>
 				<field name="recurring_invoice_line_ids" position="replace">
-					<field name="recurring_invoice_line_ids" editable="bottom" >
+					<field name="recurring_invoice_line_ids" context="{'recurring_repairs': recurring_repairs}" editable="bottom" >
+						<tree string="Account Analytic Lines" >
+		          <field name="sequence" widget="handle"/>
+		          <field name="product_id"/>
+		          <field name="name"/>
+		          <field name="quotation_notes" attrs="{'column_invisible': [('parent.recurring_repairs', '=', False)]}"/>
+		          <field name="quantity"/>
+		          <field name="uom_id"/>
+		          <field name="automatic_price"/>
+		          <field name="price_unit" attrs="{'readonly': [('automatic_price', '=', True)]}"/>
+		          <field name="specific_price" invisible="1"/>
+		          <field name="discount" groups="sale.group_discount_per_so_line"/>
+		          <field name="price_subtotal"/>
+	          </tree>
 						<form name="account_analytic_lines" string="Account Analytic Lines">
 							<group name="general">
 								<group string="Product" name="product">
@@ -32,13 +45,17 @@
 									<field name="price_subtotal" />
 								</group>
 							</group>
-							<group string="Repair Order" name="repair">
+
+							<field name="recurring_repairs" invisible="1" />
+							<group string="Repair Order" name="repair" attrs="{'invisible': [('recurring_repairs', '=', False)]}">
 								<field name="guarantee_limit" />
 								<field name="operations" context="{'default_product_uom_qty': quantity}" >
                   <tree string="Operations" editable="bottom">
                       <field name="type"/>
                       <field name="product_id"/>
                       <field name="name"/>
+											<field name="location_id" groups="stock.group_stock_multi_locations"/>
+                      <field name="location_dest_id" groups="stock.group_stock_multi_locations"/>
                       <field name="product_uom_qty" string="Quantity"/>
                       <field name="product_uom" string="Unit of Measure" groups="product.group_uom"/>
                       <field name="price_unit"/>
@@ -63,20 +80,7 @@
 							</group>
 						</form>
 					<!-- <field name="recurring_invoice_line_ids" attrs="{'invisible': [('recurring_repairs','=',False)]}"> -->
-						<tree string="Account Analytic Lines" >
-		          <field name="sequence" widget="handle"/>
-		          <field name="product_id"/>
-		          <field name="name"/>
-							<!-- <field name="recurring_repairs" invisible="1"/> -->
-		          <!-- <field name="quotation_notes" attrs="{'invisible': [('recurring_repairs','=', False)]}"/> -->
-		          <field name="quantity"/>
-		          <field name="uom_id"/>
-		          <field name="automatic_price"/>
-		          <field name="price_unit" attrs="{'readonly': [('automatic_price', '=', True)]}"/>
-		          <field name="specific_price" invisible="1"/>
-		          <field name="discount" groups="sale.group_discount_per_so_line"/>
-		          <field name="price_subtotal"/>
-	          </tree>
+
 
 					</field>
 				</field>
