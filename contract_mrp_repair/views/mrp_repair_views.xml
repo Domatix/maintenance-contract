@@ -7,13 +7,22 @@
     <field name="arch" type="xml">
       <field name="address_id" position="after">
         <field name="contract_id" />
-
       </field>
       <field name="invoice_method" position="attributes">
         <attribute name="attrs">{'invisible': [('contract_id','!=',False)]}</attribute>
-
       </field>
 
+    </field>
+  </record>
+
+  <record id="view_repair_order_form_filter" model="ir.ui.view">
+    <field name="name">view.repair.order.form.filter</field>
+    <field name="model">mrp.repair</field>
+    <field name="inherit_id" ref="mrp_repair.view_repair_order_form_filter" />
+    <field name="arch" type="xml">
+      <field name="name" position="after">
+        <field name="contract_id" />
+      </field>
     </field>
   </record>
 </odoo>
